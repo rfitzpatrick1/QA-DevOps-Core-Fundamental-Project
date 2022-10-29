@@ -1,6 +1,10 @@
 from application import db
 
 class Firm(db.Model):
+    name=db.Column(db.String,primary_key=True)
+    year_founded=db.Integer()
+    country_headquartered=db.String
+    venues_owned=db.Relationship('Venues',backref='firm')
     reg_no=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String)
     year_founded=db.Column(db.Integer(4))
