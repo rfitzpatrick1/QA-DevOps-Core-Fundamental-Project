@@ -1,0 +1,26 @@
+<html>
+
+<h2> Firm Info </h2>
+<br>
+<br>
+<a href="{{ url_for('Add_firm') }}">Add Firm</a>
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Year Founded</td>
+        <td>Country Based</td>
+
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td> <a href="{{ url_for('firm_information',name=record.name)) }}">
+                        {{ record.year_founded }}</a></td>
+                        <td> {{ record.country_based }} </td>
+                        <td> <a href="{{ url_for('edit_firm',name=record.name }}">edit</a>
+                            <a href="{{ url_for('delete_firm',name=record.name }}">delete</a>
+                        </td>
+    </tr>
+    {% endfor %}
+</table>
+</html>
